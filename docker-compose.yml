@@ -1,0 +1,11 @@
+version: '3'
+services:
+  oci-arm-host-capacity:
+    container_name: oci-arm
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - ./key.pem:/key.pem:ro
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
